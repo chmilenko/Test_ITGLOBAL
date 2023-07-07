@@ -1,26 +1,24 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
+import PropTypes from "prop-types";
+import SelectLang from "./Select/SelectLang";
+import "./Header.css";
 
-function Header() {
+function Header({ onClose }) {
   return (
-    <div>
+    <div className="header">
+      <SelectLang />
       <div>
-        <select>
-          <p>Страна</p>
-          <option>United States</option>
-          <option>Netherlands</option>
-          <option>Беларусь</option>
-          <option>Россия</option>
-          <option>Казахстан</option>
-          <option>Türkiye</option>
-        </select>
-      </div>
-      <div>
-        <radio>
+        <radio onClick={onClose} style={{ cursor: "pointer" }}>
           <img alt="krestik" src="img/krestik.svg" />
         </radio>
       </div>
     </div>
   );
 }
+
+Header.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default Header;
